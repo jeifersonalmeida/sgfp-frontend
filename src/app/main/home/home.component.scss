@@ -1,0 +1,21 @@
+mat-form-field {
+  width: 500px;
+}
+
+div.flex.justify-between button {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.table-container {
+  height: 90%;
+  overflow-y: auto;
+
+  tr:hover {
+    background-color: darken(#fff, 5%);
+    cursor: pointer;
+  }
+  button {
+    margin-left: 10px;
+  }
+}

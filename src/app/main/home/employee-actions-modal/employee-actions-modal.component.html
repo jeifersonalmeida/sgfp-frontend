@@ -1,0 +1,32 @@
+<form [formGroup]="form">
+  <mat-form-field class="w-100">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name" [readonly]="modalData?.readonly">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>RG</mat-label>
+    <input matInput formControlName="rg" [readonly]="modalData?.readonly">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>CPF</mat-label>
+    <input matInput formControlName="cpf" [readonly]="modalData?.readonly">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Cargo</mat-label>
+    <input matInput formControlName="position" [readonly]="modalData?.readonly">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Salário</mat-label>
+    <input matInput formControlName="salary" [readonly]="modalData?.readonly">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Hora Extra</mat-label>
+    <input matInput formControlName="overtimeValue" [readonly]="modalData?.readonly">
+  </mat-form-field>
+  <div class="text-align-end">
+    <button mat-raised-button color="accent" (click)="onCancel()">
+      {{ modalData?.readonly ? 'Fechar' : 'Cancelar' }}
+    </button>
+    <button mat-raised-button color="primary" (click)="onSave()" *ngIf="!modalData?.readonly">Salvar</button>
+  </div>
+</form>

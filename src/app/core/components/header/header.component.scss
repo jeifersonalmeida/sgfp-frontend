@@ -1,0 +1,15 @@
+@import '../../../../styles.scss';
+  
+nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: mat-color($sgfp-primary, default);
+  
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    // color: mat-color($primary, default);
+    margin-left: 20px;
+  }
+}
