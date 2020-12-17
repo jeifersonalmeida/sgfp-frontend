@@ -12,6 +12,7 @@ import { Employee, ModalData } from '../../../core/models';
 export class EmployeeActionsModalComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
+    id: new FormControl(),
     name: new FormControl(null, [Validators.required]),
     rg: new FormControl(null, [Validators.required]),
     cpf: new FormControl(null, [Validators.required]),
@@ -36,7 +37,17 @@ export class EmployeeActionsModalComponent implements OnInit {
   }
 
   onSave() {
-    this.dialogRef.close(this.form.value);
+    const form = this.form.value;
+    const employee: Employee = {
+      id: form.id,
+      name: form.name,
+      rg: form.rg,
+      cpf: form.cpf,
+      position: form.position,
+      salary: +form.salary,
+      overtimeValue: +form.overtimeValue,
+    }
+    this.dialogRef.close(employee);
   }
 
 }

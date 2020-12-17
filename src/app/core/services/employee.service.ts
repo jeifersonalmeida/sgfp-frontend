@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Employee } from '../models';
@@ -10,23 +11,24 @@ import { Employee } from '../models';
 })
 export class EmployeeService {
 
-  private readonly employeesMockPath = 'assets/mocks/employees.json';
+  private readonly servicePath = environment.backUrl + '/funcionario';
 
   constructor(private httpClient: HttpClient) { }
 
   findAll(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(this.employeesMockPath);
+    return this.httpClient.get<Employee[]>(this.servicePath);
   }
 
   save(employee: Employee): Observable<any> {
-    return this.httpClient.post('', employee);
+    return this.httpClient.post(this.servicePath, employee);
   }
 
   edit(employee: Employee) {
-
+    return this.httpClient.patch(this.servicePath, employee, { params: { id: employee.id } });
   }
 
-  delete(id: number) {
+  delete(id: string) {
+    return this.httpClient.delete(this.servicePath, { params: { id } });
   }
 
 }

@@ -5,11 +5,11 @@
   </mat-form-field>
   <mat-form-field class="w-100">
     <mat-label>RG</mat-label>
-    <input matInput formControlName="rg" [readonly]="modalData?.readonly">
+    <input matInput formControlName="rg" mask="00.000.000-0" [readonly]="modalData?.readonly">
   </mat-form-field>
   <mat-form-field class="w-100">
     <mat-label>CPF</mat-label>
-    <input matInput formControlName="cpf" [readonly]="modalData?.readonly">
+    <input matInput formControlName="cpf" mask="000.000.000-00" [readonly]="modalData?.readonly">
   </mat-form-field>
   <mat-form-field class="w-100">
     <mat-label>Cargo</mat-label>
@@ -17,11 +17,11 @@
   </mat-form-field>
   <mat-form-field class="w-100">
     <mat-label>Salário</mat-label>
-    <input matInput formControlName="salary" [readonly]="modalData?.readonly">
+    <input matInput formControlName="salary" prefix="R$ " mask="separator.2" thousandSeparator="." [readonly]="modalData?.readonly">
   </mat-form-field>
   <mat-form-field class="w-100">
     <mat-label>Hora Extra</mat-label>
-    <input matInput formControlName="overtimeValue" [readonly]="modalData?.readonly">
+    <input matInput formControlName="overtimeValue" prefix="R$ " mask="separator.2" thousandSeparator="." [readonly]="modalData?.readonly">
   </mat-form-field>
   <div class="text-align-end">
     <button mat-raised-button color="accent" (click)="onCancel()">
